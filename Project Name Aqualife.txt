@@ -1,0 +1,21 @@
+Project Name: Aqualife
+
+Purpose: Selling fish, tortoises, aqua animals, and their food.
+
+Theme: Ocean blue, light green glassy, plant-like, clean, 3D model interaction (fish moving).
+
+Frontend Technologies: React (Vite setup), HTML, CSS, JavaScript.
+
+Frontend Features: Home, About, Food & Products dropdown, Animals dropdown, Sign In on home page, responsive design, Location, Contact Me page (submit mail, name, message to your mail).
+
+Backend Technologies: Java, Hibernate, SQL.
+
+Backend Package Name: com.aqualife (with sub-packages like controller, service, repository, model, config).
+
+Chatbot: Gemini AI (via API, free tier, integrated through backend).
+
+Deployment Strategy (Free/Low-Cost): Render.com (backend & database), Vercel/Netlify (frontend), avoiding Google Cloud Platform free trial.
+
+Current State: Basic React frontend setup with initial CSS for the Aqualife theme.
+
+You can stop now, and we can continue this project later exactly from where we left off. Just tell me when you're ready to pick it up again!

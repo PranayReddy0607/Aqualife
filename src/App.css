@@ -1,0 +1,296 @@
+/* src/App.css */
+:root {
+  /* Define your core color variables */
+  --color-ocean-blue: #196299;
+  --color-light-green: #35a3e7;
+  --color-text-light: #8fdd70; /* Sandy/Pebble neutral */
+  --color-text-dark: #333; /* Dark text for contrast */
+  --color-accent-shimmer: #e0f2f7; /* Light accent for glassy effect */
+}
+
+body, html, #root {
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A clean, modern font */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-ocean-blue); /* Main background */
+  color: var(--color-text-light); /* Light text on dark background */
+}
+
+/* This container now has position and z-index to sit on top of the video */
+.aqualife-home-container {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  z-index: 1; /* Make sure this is higher than the video's z-index */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Correctly position the video behind all content */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Header Styles */
+.aqualife-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: rgba(0, 70, 100, 0.8); /* Slightly transparent for glassy effect */
+  backdrop-filter: blur(5px); /* Glassy blur */
+  border-bottom: 1px solid rgba(162, 217, 162, 0.3); /* Light green border */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px; /* Slightly rounded corners */
+  margin-bottom: 40px;
+}
+
+.aqualife-logo h1 {
+  margin: 0;
+  font-size: 2em;
+  color: var(--color-light-green); /* Green logo */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.aqualife-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.aqualife-nav ul li {
+  position: relative;
+  margin: 0 15px;
+}
+
+.aqualife-nav ul li a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.aqualife-nav ul li a:hover {
+  color: var(--color-light-green);
+}
+
+/* Dropdown Styles */
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 70, 100, 0.9); /* Slightly darker, more opaque */
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+  z-index: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  top: 100%; /* Position below the parent item */
+  left: 0;
+  transform: translateY(10px); /* Initial offset for smooth animation */
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none; /* Allow clicks through when hidden */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all; /* Enable clicks when visible */
+}
+
+.dropdown-content a {
+  color: var(--color-text-light);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--color-light-green);
+  color: var(--color-text-dark);
+}
+
+.aqualife-user-actions button {
+  margin-left: 10px;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  display: flex;
+  flex-direction: column; /* Stack content and 3D area vertically */
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(180deg, rgba(0, 90, 141, 0.7), rgba(0, 119, 182, 0.5)); /* Gentle gradient for depth */
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  margin-bottom: 40px;
+  width: 100%; /* Take full width within root max-width */
+}
+
+.hero-content h1 {
+  font-size: 3.5em;
+  margin-bottom: 15px;
+  color: var(--color-accent-shimmer); /* Shimmery title */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+  font-size: 1.3em;
+  max-width: 700px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.shop-now-btn {
+  padding: 15px 35px;
+  font-size: 1.2em;
+  border-radius: 30px; /* Pill shape */
+  background-color: var(--color-light-green);
+  color: var(--color-text-dark);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.threejs-placeholder {
+  width: 80%; /* Adjust as needed */
+  height: 300px; /* Placeholder height for 3D animation */
+  background-color: rgba(255, 255, 255, 0.05); /* Very light glassy background */
+  border: 2px solid rgba(var(--color-accent-shimmer), 0.5);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  font-style: italic;
+  color: rgba(var(--color-text-light), 0.7);
+  font-size: 1.1em;
+  overflow: hidden; /* Ensure 3D content stays within bounds */
+}
+
+/* Featured Products Section */
+.featured-products {
+  width: 100%;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.featured-products h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: var(--color-light-green); /* Green heading */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.product-card {
+  background-color: rgba(0, 119, 182, 0.6); /* Slightly lighter blue with transparency */
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  color: var(--color-text-light);
+  border: 1px solid rgba(162, 217, 162, 0.4); /* Green border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Footer Styles */
+.aqualife-footer {
+  width: 100%;
+  background-color: rgba(0, 50, 70, 0.8); /* Darker, slightly transparent */
+  backdrop-filter: blur(3px);
+  padding: 25px 30px;
+  text-align: center;
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.aqualife-footer p {
+  margin: 0;
+  font-size: 0.9em;
+  color: rgba(var(--color-text-light), 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .aqualife-header {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .aqualife-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .aqualife-nav ul li {
+    margin: 5px 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5em;
+  }
+
+  .hero-content p {
+    font-size: 1em;
+  }
+
+  .shop-now-btn {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
+
+  .threejs-placeholder {
+    height: 200px; /* Smaller on mobile */
+  }
+}
